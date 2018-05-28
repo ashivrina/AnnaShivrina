@@ -47,10 +47,11 @@ public class LoginPage {
         assertEquals(driver.getTitle(), "Home Page");
 
         //7. Assert that there are 4 items on the header section, they are displayed and ave proper texts
+        String[] menuTexts = {"HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"};
         List<WebElement> menuItems = driver.findElements(By.cssSelector(".nav > li"));
         assertEquals(menuItems.size(), 4);
-        for (WebElement menuItem : menuItems) {
-            assertTrue(menuItem.isDisplayed());
+        for (int i = 0; i < menuItems.size(); i++) {
+            assertEquals(menuItems.get(i).getText().replaceAll("\n", " "), menuTexts[i]);
         }
 
         //7. Assert that there are 4 images on the Home Page and they are displayed
