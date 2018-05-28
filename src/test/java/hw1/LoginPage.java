@@ -54,14 +54,14 @@ public class LoginPage {
             assertEquals(menuItems.get(i).getText().replaceAll("\n", " "), menuTexts[i]);
         }
 
-        //7. Assert that there are 4 images on the Home Page and they are displayed
+        //8. Assert that there are 4 images on the Home Page and they are displayed
         List<WebElement> images = driver.findElements(By.cssSelector(".benefit-icon"));
         assertEquals(images.size(), 4);
         for (WebElement image : images) {
             assertTrue(image.isDisplayed());
         }
 
-        //8. Assert that there are 4 texts on the Home Page and check them by getting texts
+        //9. Assert that there are 4 texts on the Home Page and check them by getting texts
         String[] correctTexts = {"To include good practices and ideas from successful EPAM project",
                 "To be flexible and customizable",
                 "To be multiplatform",
@@ -75,7 +75,7 @@ public class LoginPage {
             assertEquals(textUnderIcons.get(i).getText().replaceAll("\n", " "), correctTexts[i]);
         }
 
-        //9. Assert the main header text
+        //10. Assert the main header text
         String mainTitle = "EPAM FRAMEWORK WISHES…";
         String mainText = "LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT, " +
                 "SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA. " +
@@ -85,22 +85,22 @@ public class LoginPage {
         assertEquals(driver.findElement(By.cssSelector(".main-title")).getText(), mainTitle);
         assertEquals(driver.findElement(By.cssSelector(".main-txt")).getText(), mainText);
 
-        //10. Assert the subheader text
+        //11. Assert the subheader text
         String subheaderText = "JDI GITHUB";
         WebElement subheader = driver.findElement(By.cssSelector(".text-center > a"));
         assertEquals(subheader.getText(), subheaderText);
 
-        //11. Assert that JDI GITHUB is a link and has a proper URL
+        //12. Assert that JDI GITHUB is a link and has a proper URL
         String linkAddress = "https://github.com/epam/JDI";
         assertEquals(subheader.getAttribute("href"), linkAddress);
 
-        //12. Assert that there is a left section
+        //13. Assert that there is a left section
         assertTrue(driver.findElement(By.cssSelector(".uui-side-bar")).isDisplayed());
 
-        //13. Assert that there is a footer
+        //14. Assert that there is a footer
         assertTrue(driver.findElement(By.cssSelector(".footer-content")).isDisplayed());
 
-        //14. Close a browser
+        //15. Close a browser
         driver.close();
     }
 }
